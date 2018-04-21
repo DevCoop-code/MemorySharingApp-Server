@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reminiscence.mapper.UploadMapper">
+	<insert id="insertData">
+		insert into reminiscence_memoryboard(uemail, imagepath, description, latitude, longitude) values(#{uemail}, #{imagepath}, #{description}, #{latitude}, #{longitude})
+	</insert>
+</mapper>

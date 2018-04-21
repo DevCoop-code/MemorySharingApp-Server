@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reminiscence.mapper.MemoryBoardMapper">
+	<select id="read" resultType="MemoryBoardVO">
+	select 
+		bno, uemail, imagepath, description, latitude, longitude, regdate
+	from
+		reminiscence_memoryboard
+	where bno = #{bno}
+	</select>
+	
+	<delete id="delete">
+		delete from reminiscence_memoryboard where bno = #{bno}
+	</delete>
+	
+	<select id="listAll" resultType="MemoryBoardVO">
+	<![CDATA[
+	select
+		bno, uemail, imagepath, description, latitude, longitude, regdate
+	from
+		reminiscence_memoryboard
+	where bno > 0
+	order by bno desc, regdate desc
+	]]>
+	</select>
+</mapper>

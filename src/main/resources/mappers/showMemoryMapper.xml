@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reminiscence.mapper.ShowMemoryMapper">
+	<select id="showmemory" resultType="MemoryDataDTO">
+		select bno, uemail, imagepath, description, regdate from reminiscence_memoryboard where 
+		latitude between #{latitudedowner} and #{latitudeupper} and 
+		longitude between #{longitudedowner} and #{longitudeupper} order by bno desc, regdate desc
+	</select>
+	
+	<select id="selectname" resultType="String">
+		select uname from reminiscence_user where uemail = #{uemail}
+	</select>
+</mapper>

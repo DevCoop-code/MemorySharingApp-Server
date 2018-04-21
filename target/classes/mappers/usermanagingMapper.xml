@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reminiscence.mapper.UserManagingMapper">
+	<select id="read" resultType="UserManagingVO">
+	select
+		uemail, upw, uname, uprofile
+	from
+		reminiscence_user
+	where uemail = #{uemail}
+	</select>
+	
+	<delete id="delete">
+		delete from reminiscence_user where uemail = #{uemail}
+	</delete>
+	
+	<select id="listAll" resultType="UserManagingVO">
+	<![CDATA[
+	select
+		uemail, upw, uname, uprofile
+	from
+		reminiscence_user
+	]]>
+	</select>
+	
+	<select id = "deleteBoard">
+		delete from reminiscence_memoryboard where uemail = #{uemail}
+	</select>
+</mapper>

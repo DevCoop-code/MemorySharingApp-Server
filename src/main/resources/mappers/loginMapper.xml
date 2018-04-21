@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.reminiscence.mapper.LoginMapper">
+	<select id="logincheck" resultType="UserVO">
+	select uemail, upw, uname, uprofile from reminiscence_user where uemail = #{uemail}
+	</select>
+	
+	<insert id="insertuser">
+	insert into reminiscence_user(uemail, upw, uname) value(#{uemail}, #{upw}, #{uname}) 
+	</insert>
+	
+	<select id="login" resultType="UserVO">
+	select uemail, upw, uname, uprofile from reminiscence_user where uemail = #{id} and upw = #{password}
+	</select>
+	
+	<update id="changepassword">
+	update reminiscence_user set upw = #{upw} where uemail = #{uemail}
+	</update>
+</mapper>
